@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cffr3pa8rclmi"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_pmitp"]
-[ext_resource type="Script" path="res://scripts/player/claw.gd" id="2_uv4av"]
-[ext_resource type="Texture2D" uid="uid://djavmcmcsidv2" path="res://assets/textures/objects/pow-robot.png" id="3_d2s2f"]
-[ext_resource type="Script" path="res://scripts/player/gui.gd" id="4_vi7ga"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lpkrt"]
+[ext_resource type="Script" path="res://scripts/player/claw.gd" id="2_v63ne"]
+[ext_resource type="Texture2D" uid="uid://djavmcmcsidv2" path="res://assets/textures/objects/pow-robot.png" id="3_6q6he"]
+[ext_resource type="Script" path="res://scripts/player/gui.gd" id="4_m5mbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nehbx"]
 size = Vector2(14, 30)
@@ -13,7 +13,7 @@ size = Vector2(2, 2)
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 7
-script = ExtResource("1_pmitp")
+script = ExtResource("1_lpkrt")
 
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -26,7 +26,7 @@ position = Vector2(0, -7)
 position = Vector2(5, -1)
 collision_layer = 2147483650
 collision_mask = 2147483654
-script = ExtResource("2_uv4av")
+script = ExtResource("2_v63ne")
 
 [node name="claw_hitbox" type="CollisionShape2D" parent="claw"]
 position = Vector2(1, 0)
@@ -40,13 +40,13 @@ color = Color(0.388235, 0.388235, 0.388235, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="player_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_d2s2f")
+texture = ExtResource("3_6q6he")
 hframes = 8
 vframes = 10
 
 [node name="player_gui" type="Node2D" parent="."]
 position = Vector2(0, -113)
-script = ExtResource("4_vi7ga")
+script = ExtResource("4_m5mbj")
 
 [node name="gui_background" type="ColorRect" parent="player_gui"]
 offset_left = -160.0

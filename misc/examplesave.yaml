@@ -1,0 +1,11 @@
+# This is an example, uncompressed save for POW! Robot
+
+version: "preprototype"
+gameplay:
+  levels:
+    super-plumbing-bros:
+      1: "notcleared"
+      2: "notcleared"
+      3: "notcleared"
+  upgrades:
+    claw: 1
