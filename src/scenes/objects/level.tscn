@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjqm463nq6h7d"]
+
+[ext_resource type="Script" path="res://scripts/world-map/level.gd" id="1_ewgao"]
+[ext_resource type="Texture2D" uid="uid://i5ajay1gq8la" path="res://assets/textures/objects/level-map.png" id="2_jl7xh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vltrk"]
+size = Vector2(32, 31)
+
+[node name="level" type="Area2D"]
+script = ExtResource("1_ewgao")
+
+[node name="level-hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vltrk")
+
+[node name="level_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_jl7xh")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

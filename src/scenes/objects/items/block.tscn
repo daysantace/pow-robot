@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://52vlxw5d7e5q"]
+
+[ext_resource type="Script" path="res://scripts/items/block.gd" id="1_87vug"]
+[ext_resource type="Texture2D" uid="uid://7xkf35l4nqlq" path="res://assets/textures/objects/corrupted-data.png" id="2_kco8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veadt"]
+size = Vector2(15.9375, 15.75)
+
+[node name="block" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_87vug")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_kco8r")
+hframes = 12
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_veadt")
+
+[node name="hitbox_with_pow" type="StaticBody2D" parent="."]
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="hitbox_with_pow"]
+shape = SubResource("RectangleShape2D_veadt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

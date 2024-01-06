@@ -1,6 +1,11 @@
 # This is an example, uncompressed save for POW! Robot
+# both compressed (.zip, .gz) and uncompressed (.yaml) can be read
 
-version: "preprototype"
+version:
+    phase: "preprototype"
+    version: 1
+    patch: 1
+language: "en"
 gameplay:
   levels:
     super-plumbing-bros:

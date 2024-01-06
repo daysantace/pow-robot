@@ -9,7 +9,7 @@ var spritetype = 0
 @onready var sprite = $player_sprite
 @onready var claw = $claw
 
-func _process(delta):
+func _physics_process(delta):
 
 	if not is_on_floor():
 		velocity.y+=gravity*delta

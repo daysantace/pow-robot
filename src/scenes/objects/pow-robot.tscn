@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cffr3pa8rclmi"]
+[gd_scene load_steps=8 format=3 uid="uid://cffr3pa8rclmi"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lpkrt"]
-[ext_resource type="Script" path="res://scripts/player/claw.gd" id="2_v63ne"]
+[ext_resource type="Script" path="res://scripts/player/level/player.gd" id="1_lpkrt"]
+[ext_resource type="Script" path="res://scripts/player/level/claw.gd" id="2_v63ne"]
 [ext_resource type="Texture2D" uid="uid://djavmcmcsidv2" path="res://assets/textures/objects/pow-robot.png" id="3_6q6he"]
-[ext_resource type="Script" path="res://scripts/player/gui.gd" id="4_m5mbj"]
+[ext_resource type="Script" path="res://scripts/player/level/gui.gd" id="4_m5mbj"]
+[ext_resource type="Theme" uid="uid://bupf44qy18u22" path="res://assets/miscfiles/themes/gui.tres" id="5_l7wn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nehbx"]
 size = Vector2(14, 30)
@@ -12,7 +13,7 @@ size = Vector2(14, 30)
 size = Vector2(2, 2)
 
 [node name="player" type="CharacterBody2D"]
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_lpkrt")
 
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
@@ -22,10 +23,10 @@ shape = SubResource("RectangleShape2D_nehbx")
 [node name="player_camera" type="Camera2D" parent="."]
 position = Vector2(0, -7)
 
-[node name="claw" type="StaticBody2D" parent="."]
+[node name="claw" type="Area2D" parent="."]
 position = Vector2(5, -1)
 collision_layer = 2147483650
-collision_mask = 2147483654
+collision_mask = 2147483660
 script = ExtResource("2_v63ne")
 
 [node name="claw_hitbox" type="CollisionShape2D" parent="claw"]
@@ -54,3 +55,21 @@ offset_top = -14.0
 offset_right = 160.0
 offset_bottom = 17.0
 color = Color(0, 0, 0, 0.686275)
+
+[node name="score" type="Label" parent="player_gui"]
+offset_left = -156.0
+offset_top = -12.0
+offset_right = -108.0
+offset_bottom = 14.0
+theme = ExtResource("5_l7wn5")
+text = "Score:"
+
+[node name="power" type="Label" parent="player_gui"]
+offset_left = 4.0
+offset_top = -12.0
+offset_right = 58.0
+offset_bottom = 14.0
+text = "Power:"
+
+[connection signal="area_entered" from="claw" to="claw" method="_on_area_entered"]
+[connection signal="body_entered" from="claw" to="claw" method="_on_body_entered"]

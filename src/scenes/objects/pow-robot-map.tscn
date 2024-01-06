@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://3tn0baenunjg"]
+[gd_scene load_steps=4 format=3 uid="uid://3tn0baenunjg"]
 
 [ext_resource type="Script" path="res://scripts/player/map/player.gd" id="1_qp5mg"]
+[ext_resource type="Texture2D" uid="uid://ces5qbebsrwpw" path="res://assets/textures/objects/pow-robot-map.png" id="2_f4c38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7ni3"]
-size = Vector2(16, 16)
+size = Vector2(16, 32)
 
 [node name="pow-robot-map" type="CharacterBody2D"]
 collision_mask = 5
@@ -11,12 +12,11 @@ script = ExtResource("1_qp5mg")
 
 [node name="player_camera" type="Camera2D" parent="."]
 
-[node name="player_sprite" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0, 0.247059, 1, 1)
-
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e7ni3")
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_f4c38")
+hframes = 4
+vframes = 4

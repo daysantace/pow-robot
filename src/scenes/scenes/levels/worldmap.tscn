@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6kbmascrh2ec"]
+[gd_scene load_steps=4 format=3 uid="uid://b6kbmascrh2ec"]
 
 [ext_resource type="TileSet" uid="uid://rc1uhje2a4xg" path="res://assets/textures/tilemaps/tilemap-worldmap.tres" id="1_3lpnm"]
 [ext_resource type="PackedScene" uid="uid://3tn0baenunjg" path="res://scenes/objects/pow-robot-map.tscn" id="2_5fjtc"]
+[ext_resource type="PackedScene" uid="uid://r5il1f5jkr5e" path="res://scenes/scenes/levels/level.tscn" id="3_akutj"]
 
 [node name="worldmap" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -30,3 +31,10 @@ layer_0/tile_data = PackedInt32Array(-4980810, 393216, 4, -4915274, 393216, 4, -
 
 [node name="pow-robot-map" parent="." instance=ExtResource("2_5fjtc")]
 position = Vector2(273, 325)
+
+[node name="levels" type="Node" parent="."]
+
+[node name="level" parent="levels" instance=ExtResource("3_akutj")]
+position = Vector2(315, 285)
+collision_layer = 8
+levelid = "super-plumbing-bros/level-1.tscn"

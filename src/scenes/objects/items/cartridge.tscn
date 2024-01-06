@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://0w8tya801fbq"]
+
+[ext_resource type="Texture2D" uid="uid://3du23krhn5mv" path="res://assets/textures/objects/cartridge.png" id="1_o0vlo"]
+[ext_resource type="Script" path="res://scripts/items/cartridge.gd" id="1_pa2sm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veadt"]
+size = Vector2(15.9844, 8)
+
+[node name="cartridge" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_pa2sm")
+power = "mario"
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_o0vlo")
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0.0078125, 1)
+shape = SubResource("RectangleShape2D_veadt")
+
+[node name="hitbox_with_pow" type="StaticBody2D" parent="."]
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="hitbox_with_pow"]
+position = Vector2(0.015625, 1)
+shape = SubResource("RectangleShape2D_veadt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 var spd=100
+var spriteframe=0
+var spritetype=0
+@onready var sprite=$player_sprite
 
 func _process(delta):
 	# movement
@@ -20,5 +23,26 @@ func _process(delta):
 	
 	if velocity.x!=0 and velocity.y!=0: # make diagonal better, 1.412 ≈ sqrt(2)
 		velocity/=1.412
-		
+	
+	# sprite frame
+	if spriteframe>=3.9:
+		spriteframe=0
+	else:
+		spriteframe+=0.1
+	
+	# decide sprite
+	if velocity.x>0:
+		spritetype=1
+	elif velocity.x<0:
+		spritetype=2
+	elif velocity.y>0:
+		spritetype=3
+	elif velocity.y<0:
+		spritetype=0
+	else:
+		spriteframe=0
+	
+	# load sprite
+	sprite.frame_coords=Vector2i(floor(spriteframe),spritetype)
+	
 	move_and_slide()

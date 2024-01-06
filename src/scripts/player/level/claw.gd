@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 var claw_extended = false
 var claw_length = 1
@@ -40,3 +40,10 @@ func _process(delta):
 		claw_length = 2
 	
 	self.global_position = player.global_position-Vector2(-4*player.scale.y,1)
+
+# the two should be the same
+func _on_area_entered(area):
+	extend_dir=-1
+	
+func _on_body_entered(body):
+	extend_dir=-1
