@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="POW! ROBOT"
-run/main_scene="res://scenes/scenes/levels/worldmap.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+run/main_scene="res://scenes/scenes/menu/title.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
 
 [autoload]
 

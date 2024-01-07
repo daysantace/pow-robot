@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://rtcdp2y4ucss"]
+
+[ext_resource type="FontFile" uid="uid://18wu6ucj1a33" path="res://assets/miscfiles/themes/silver.ttf" id="1_o5pfg"]
+[ext_resource type="Theme" uid="uid://bupf44qy18u22" path="res://assets/miscfiles/themes/gui.tres" id="1_puqd0"]
+[ext_resource type="Script" path="res://scripts/menu/button.gd" id="3_whcxb"]
+
+[sub_resource type="GDScript" id="GDScript_aqjyb"]
+resource_name = "linktogh"
+script/source = "extends Button
+
+func _on_pressed():
+	OS.shell_open(\"https://github.com/daysantace/pow-robot\")
+"
+
+[node name="title" type="Node2D"]
+
+[node name="ver" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 216.0
+offset_right = 226.0
+offset_bottom = 240.0
+theme = ExtResource("1_puqd0")
+theme_override_fonts/font = ExtResource("1_o5pfg")
+theme_override_font_sizes/font_size = 19
+text = "Version pre-prototype 1.2 / Dev branch"
+
+[node name="title" type="Label" parent="."]
+offset_left = 8.0
+offset_right = 179.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("1_o5pfg")
+theme_override_font_sizes/font_size = 57
+text = "POW! Robot"
+horizontal_alignment = 1
+
+[node name="button" type="VBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 80.0
+offset_right = 168.0
+offset_bottom = 200.0
+theme = ExtResource("1_puqd0")
+
+[node name="play" type="Button" parent="button"]
+layout_mode = 2
+theme = ExtResource("1_puqd0")
+theme_override_font_sizes/font_size = 19
+text = "Play"
+script = ExtResource("3_whcxb")
+to_scene = "levels/worldmap.tscn"
+
+[node name="credits" type="Button" parent="button"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Credits"
+script = ExtResource("3_whcxb")
+to_scene = "menu/credits.tscn"
+
+[node name="source" type="Button" parent="button"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "GitHub"
+script = SubResource("GDScript_aqjyb")
+
+[connection signal="pressed" from="button/play" to="button/play" method="_on_pressed"]
+[connection signal="pressed" from="button/credits" to="button/credits" method="_on_pressed"]
+[connection signal="pressed" from="button/source" to="button/source" method="_on_pressed"]
